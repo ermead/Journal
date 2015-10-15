@@ -19,15 +19,20 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        titleTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
+    
+        textField.resignFirstResponder()
         
         return true
     }
+    
 
     
     override func didReceiveMemoryWarning() {
