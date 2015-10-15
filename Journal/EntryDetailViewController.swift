@@ -15,12 +15,24 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bodyTextOutlet: UITextView!
     
     @IBAction func clearButton(sender: AnyObject) {
+        
+        titleTextField.text? = ""
+        bodyTextOutlet.text? = ""
     }
+    
+    @IBAction func saveButton(sender: AnyObject) {
+    
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleTextField.delegate = self
+    
+        
+        navigationItem.title = "Update"
         
         // Do any additional setup after loading the view.
     }
