@@ -10,13 +10,18 @@ import UIKit
 
 class EntryListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBAction func addEntryButton(sender: AnyObject) {
+    
+        print("button pressed")
+    
+    }
+    
+    
     override func viewDidLoad() {
     
         super.viewDidLoad()
-
     
-        //navigationItem.leftBarButtonItem = editButtonItem()
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -36,19 +41,20 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
         return cell
         
     }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
+
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        editingStyle == .Delete
-        EntryController.sharedController.removeEntry(EntryController.sharedController.entries[indexPath.row])
+        if editingStyle == .Delete {
+        
+            EntryController.sharedController.removeEntry(EntryController.sharedController.entries[indexPath.row])
+            tableView.reloadData()
+        }
         
         
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
