@@ -8,8 +8,10 @@
 
 import UIKit
 
-class EntryListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EntryListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
+    @IBOutlet weak var entryTableView: UITableView!
+    
     @IBAction func addEntryButton(sender: AnyObject) {
     
         print("button pressed")
@@ -21,6 +23,8 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
     
         super.viewDidLoad()
     
+        // I don't know about this..
+        self.entryTableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
@@ -49,9 +53,27 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
         
             EntryController.sharedController.removeEntry(EntryController.sharedController.entries[indexPath.row])
             tableView.reloadData()
+        } else if editingStyle == .Insert{
+                //make insert here
+            }
+
+        
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        return true
+    }
+    
+    @IBAction func unwindToEntryList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? EntryDetailViewController, entry = sourceViewController.newEntry {
+            // Add a new entry.
+            let newIndexPath = NSIndexPath(forRow: EntryController.sharedController.entries.count, inSection: 0)
+            EntryController.sharedController.entries.append(entry)
+            //What's up with this line below???
+            entryTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            print("Should have saved, but not working yet")
         }
-        
-        
     }
     
 

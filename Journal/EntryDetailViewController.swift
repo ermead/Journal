@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntryDetailViewController: UIViewController, UITextFieldDelegate {
+class EntryDetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -20,11 +20,9 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         bodyTextOutlet.text? = ""
     }
     
-    @IBAction func saveButton(sender: AnyObject) {
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
-        
-    }
-    
+    var newEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +43,21 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-
+    // This method lets you configure a view controller before it's presented.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            let title = titleTextField.text ?? ""
+            let bodyText = bodyTextOutlet.text
+            let timeStamp = 0.05
+            let tableView =
+            
+            // Set the entry to be passed to EntryListTableViewController after the unwind segue.
+            newEntry = Entry(timeStamp: timeStamp, title: title, bodyText: bodyText)
+        }
+    }
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

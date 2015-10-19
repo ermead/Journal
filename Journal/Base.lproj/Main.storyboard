@@ -68,6 +68,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="entryTableView" destination="uxT-Vg-3l7" id="NvU-RN-6uG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,19 +139,21 @@
                     <navigationItem key="navigationItem" title="Title" id="If8-bC-TLy">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3PP-G7-sfb">
                             <connections>
-                                <action selector="saveButton:" destination="pdi-nh-8ae" id="dIn-Rd-Guy"/>
+                                <segue destination="sxn-3L-b0r" kind="unwind" unwindAction="unwindToEntryList:" id="BtD-2j-cqG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bodyTextOutlet" destination="hIF-4v-7UL" id="9eu-hO-Grm"/>
+                        <outlet property="saveButton" destination="3PP-G7-sfb" id="NMl-jN-YPr"/>
                         <outlet property="titleTextField" destination="X0r-ZD-2Iv" id="Ua1-sb-5qd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgI-2I-sRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sxn-3L-b0r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="362"/>
+            <point key="canvasLocation" x="2016" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vUU-gL-os8">
