@@ -70,19 +70,16 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
             // Add a new entry.
             let newIndexPath = NSIndexPath(forRow: EntryController.sharedController.entries.count, inSection: 0)
             EntryController.sharedController.entries.append(entry)
-            //What's up with this line below???
             entryTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             print("Should have saved, but not working yet")
         }
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        <#code#>
     }
-    
 
+   
     /*
     // MARK: - Navigation
 
