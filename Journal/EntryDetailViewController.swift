@@ -24,6 +24,25 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate, UINaviga
     
     var newEntry: Entry?
     
+    @IBAction func saveButtontapped(sender: AnyObject) {
+    
+        if let entry = self.newEntry {
+            entry.title = self.titleTextField.text!
+            entry.bodyText = self.bodyTextOutlet.text
+            entry.timeStamp = NSDate()
+        } else {
+            let newEntry = Entry(timeStamp: NSDate(), title: self.titleTextField.text!, bodyText: self.bodyTextOutlet.text)
+            EntryController.sharedController.addEntry(newEntry)
+            self.newEntry = newEntry
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

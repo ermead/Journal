@@ -27,12 +27,11 @@ class EntryController {
     
     static let sharedController = EntryController()
     
-    var entries:[Entry] = [Entry(timeStamp: NSDate(), title: "Hello", bodyText: "yes")]
+    var entries: [Entry]
     
     init() {
         
         self.entries = []
-        
         self.loadFromPersistentStorage()
     }
     
@@ -57,11 +56,13 @@ class EntryController {
     
     func loadFromPersistentStorage() {
         
+        print("tried to load")
+        
         let entryDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(entriesKey) as? [Dictionary<String, AnyObject>]
         
         if let entryDictionaries = entryDictionariesFromDefaults {
             
-           self.entries = entryDictionaries.map({Entry(dictionary1: $0)!})
+           self.entries = entryDictionaries.map({Entry(dictionary: $0)!})
         }
     }
     

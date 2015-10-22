@@ -30,12 +30,12 @@ class Entry: Equatable {
         self.bodyText = bodyText
     }
     
-    init?(dictionary1: Dictionary<String, AnyObject>){
+    init?(dictionary: Dictionary<String, AnyObject>){
         
         guard let
-        timeStamp = dictionary1[timeStampKey] as? NSDate,
-        title = dictionary1[titleKey] as? String,
-        bodyText = dictionary1[textKey] as? String else {
+        timeStamp = dictionary[timeStampKey] as? NSDate,
+        title = dictionary[titleKey] as? String,
+        bodyText = dictionary[textKey] as? String else {
                 self.timeStamp = NSDate()
                 self.title = ""
                 self.bodyText = ""
@@ -48,12 +48,14 @@ class Entry: Equatable {
     }
     
     func dictionaryCopy()->Dictionary<String, AnyObject>{
-        let dictionary1 = [
+        print("tried to copy dict")
+        
+        let dictionary = [
             timeStampKey : self.timeStamp,
             titleKey : self.title,
             textKey : self.bodyText
         ]
-        return dictionary1
+        return dictionary
         
     }
     

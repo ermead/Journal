@@ -142,6 +142,7 @@
                     <navigationItem key="navigationItem" title="Title" id="If8-bC-TLy">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3PP-G7-sfb">
                             <connections>
+                                <action selector="saveButtontapped:" destination="pdi-nh-8ae" id="ksO-t0-Xuy"/>
                                 <segue destination="sxn-3L-b0r" kind="unwind" unwindAction="unwindToEntryList:" id="BtD-2j-cqG"/>
                             </connections>
                         </barButtonItem>
