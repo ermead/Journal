@@ -65,9 +65,6 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
-    }
     
     @IBAction func unwindToEntryList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EntryDetailViewController, entry = sourceViewController.newEntry {
@@ -88,6 +85,7 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
                 _ = detailViewController.view
                 
                 let indexPath = entryTableView.indexPathForSelectedRow
+                //print("I just touched \(indexPath)")
                 
                 if let selectedRow = indexPath?.row {
                     let entry = EntryController.sharedController.entries[selectedRow]
