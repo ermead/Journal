@@ -79,7 +79,7 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
             let newIndexPath = NSIndexPath(forRow: EntryController.sharedController.entries.count, inSection: 0)
             EntryController.sharedController.entries.append(entry)
             entryTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-            EntryController.saveToPersistentStorage()
+            
             print("Should have saved, but not working yet")
         }
     }

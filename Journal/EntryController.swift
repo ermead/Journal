@@ -61,7 +61,7 @@ class EntryController {
         let entryDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(entriesKey) as? [Dictionary<String, AnyObject>]
         
         if let entryDictionaries = entryDictionariesFromDefaults {
-            
+            print("entry dictionary reached")
            self.entries = entryDictionaries.map({Entry(dictionary: $0)!})
         }
     }
