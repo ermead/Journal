@@ -15,15 +15,51 @@ import Foundation
 
 class Entry: Equatable {
     
-    let timeStamp: NSTimeInterval
-    let title: String
-    let bodyText: String
+    private let timeStampKey = "timeStamp"
+    private let titleKey = "title"
+    private let textKey = "bodyText"
     
-    init (timeStamp:NSTimeInterval, title:String, bodyText:String){
+    
+    var timeStamp: NSDate
+    var title: String
+    var bodyText: String
+    
+    init (timeStamp:NSDate, title:String, bodyText:String){
         self.timeStamp = timeStamp
         self.title = title
         self.bodyText = bodyText
     }
+    
+    init?(dictionary: Dictionary<String, AnyObject>){
+        
+        guard let
+        timeStamp = dictionary[timeStampKey] as? NSDate,
+        title = dictionary[titleKey] as? String,
+        bodyText = dictionary[textKey] as? String else {
+                self.timeStamp = NSDate()
+                self.title = ""
+                self.bodyText = ""
+                
+                return nil
+        }
+        self.timeStamp = timeStamp
+        self.title = title
+        self.bodyText = bodyText
+        
+    }
+    
+    func dictionaryCopy()->Dictionary<String, AnyObject>{
+        let dictionary = [
+            timeStampKey : self.timeStamp,
+            titleKey : self.title,
+            textKey : self.textKey
+        ]
+        return dictionary
+        
+    }
+    
+    
+    
 }
 
 func == (lhs: Entry, rhs: Entry) -> Bool {
@@ -33,5 +69,59 @@ func == (lhs: Entry, rhs: Entry) -> Bool {
 
 
 
-
-
+//
+//
+//import Foundation
+//
+//class Entry: Equatable {
+//    
+//    private let timestampKey = "timestamp"
+//    private let titleKey = "title"
+//    private let textKey = "text"
+//    
+//    var timestamp: NSDate
+//    var title: String
+//    var text: String
+//    
+//    init(timestamp: NSDate = NSDate(), title: String, text: String) {
+//        
+//        self.timestamp = timestamp
+//        self.title = title
+//        self.text = text
+//    }
+//    
+//    init?(dictionary: Dictionary<String, AnyObject>) {
+//        guard let timestamp = dictionary[timestampKey] as? NSDate,
+//            let title = dictionary[titleKey] as? String,
+//            let text = dictionary[textKey] as? String else {
+//                
+//                // sets values for stored properties due to requirement as of Swift 2.0
+//                self.timestamp = NSDate()
+//                self.title = ""
+//                self.text = ""
+//                
+//                return nil
+//        }
+//        
+//        self.timestamp = timestamp
+//        self.title = title
+//        self.text = text
+//        
+//    }
+//    
+//    func dictionaryCopy() -> Dictionary<String, AnyObject> {
+//        
+//        let dictionary = [
+//            timestampKey : self.timestamp,
+//            titleKey : self.title,
+//            textKey : self.text
+//        ]
+//        
+//        return dictionary
+//    }
+//    
+//}
+//
+//func == (lhs: Entry, rhs: Entry) -> Bool {
+//    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+//}

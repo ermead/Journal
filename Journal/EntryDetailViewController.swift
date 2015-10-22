@@ -48,7 +48,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate, UINaviga
         if saveButton === sender {
             let title = titleTextField.text ?? ""
             let bodyText = bodyTextOutlet.text
-            let timeStamp = 0.0
+            let timeStamp = NSDate()
             let tableView = 
             
             // Set the entry to be passed to EntryListTableViewController after the unwind segue.

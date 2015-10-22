@@ -25,7 +25,7 @@ class EntryController {
     
     static let sharedController = EntryController()
     
-    var entries:[Entry] = [Entry(timeStamp: 0.5, title: "Hello", bodyText: "yes")]
+    var entries:[Entry] = [Entry(timeStamp: NSDate(), title: "Hello", bodyText: "yes")]
     
     func addEntry(entryParameter: Entry){
         
