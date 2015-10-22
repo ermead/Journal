@@ -65,6 +65,10 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
         return true
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        <#code#>
+    }
+    
     @IBAction func unwindToEntryList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EntryDetailViewController, entry = sourceViewController.newEntry {
             // Add a new entry.
