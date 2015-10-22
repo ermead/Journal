@@ -80,7 +80,6 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
             EntryController.sharedController.entries.append(entry)
             entryTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             
-            print("Should have saved, but not working yet")
         }
     }
     

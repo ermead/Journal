@@ -143,7 +143,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3PP-G7-sfb">
                             <connections>
                                 <action selector="saveButtontapped:" destination="pdi-nh-8ae" id="ksO-t0-Xuy"/>
-                                <segue destination="sxn-3L-b0r" kind="unwind" unwindAction="unwindToEntryList:" id="BtD-2j-cqG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,7 +154,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgI-2I-sRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="sxn-3L-b0r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2016" y="339"/>
         </scene>

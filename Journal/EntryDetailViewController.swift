@@ -62,19 +62,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate, UINaviga
         return true
     }
     
-    // This method lets you configure a view controller before it's presented.
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
-            let title = titleTextField.text ?? ""
-            let bodyText = bodyTextOutlet.text
-            let timeStamp = NSDate()
-        
-            
-            // Set the entry to be passed to EntryListTableViewController after the unwind segue.
-            newEntry = Entry(timeStamp: timeStamp, title: title, bodyText: bodyText)
-        }
-    }
-    
+  
     func updateWithEntry(entry: Entry) {
         
         self.newEntry = entry

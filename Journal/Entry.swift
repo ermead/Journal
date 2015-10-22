@@ -65,6 +65,6 @@ class Entry: Equatable {
 
 func == (lhs: Entry, rhs: Entry) -> Bool {
     
-    return (rhs.title == lhs.title)
+    return (ObjectIdentifier(lhs) == ObjectIdentifier(rhs))
 }
 
