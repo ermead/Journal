@@ -76,7 +76,21 @@ class EntryListTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        <#code#>
+        if segue.identifier == "toShowEntry" {
+            
+            if let detailViewController = segue.destinationViewController as? EntryDetailViewController {
+                
+                // Following line forces the view from Storyboard to load UI elements to make available for testing
+                _ = detailViewController.view
+                
+                let indexPath = entryTableView.indexPathForSelectedRow
+                
+                if let selectedRow = indexPath?.row {
+                    let entry = EntryController.sharedController.entries[selectedRow]
+                    detailViewController.updateWithEntry(entry)
+                }
+            }
+        }
     }
 
    
