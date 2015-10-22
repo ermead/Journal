@@ -29,9 +29,17 @@ class EntryController {
     
     var entries:[Entry] = [Entry(timeStamp: NSDate(), title: "Hello", bodyText: "yes")]
     
+    init() {
+        
+        self.entries = []
+        
+        self.loadFromPersistentStorage()
+    }
+    
     func addEntry(entryParameter: Entry){
         
         entries.append(entryParameter)
+        self.saveToPersistentStorage()
         
     }
     
